@@ -8,12 +8,12 @@
 
 import Foundation
 // i don't know if this is completely necessary but it's how I'm decoding the json data into strings
-struct SportData: Codable {
-    let Sport: String
-    let Location: String
-    let Notes: String
-    let Lat: String
-    let Long: String
-    let Time: String
+struct SportData: Decodable {
+    let Sport: [String]
+    let Location: [String]
+    let Notes: [String]
+    let Lat: [String]
+    let Long: [String]
+    let Time: [String]
 }
 

@@ -51,6 +51,7 @@ struct ContentView: View {
             Spacer()
         
                 HStack {
+                    Spacer()
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
                         .frame(width: 310, height: 125, alignment: .leading)
@@ -62,7 +63,7 @@ struct ContentView: View {
                     ForEach(0 ..< sportsTeams.count) { index in
                         
                         Text(self.sportsTeams[index]).tag(index)
-                        self
+
                     }
                     
                 }
@@ -76,6 +77,7 @@ struct ContentView: View {
                        .frame(width: 50, height: 50, alignment: .center)
                        .padding(.all)
                     }
+                    Spacer()
                     
                 }
             
@@ -83,10 +85,12 @@ struct ContentView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 10).frame(width: 300, height: 200, alignment: .center).colorInvert().opacity(0.85)
                 VStack{
+        
                     Text("Sport Team:\(self.sportInfo.sportName)")
                     Text("Location:\(self.sportInfo.location)")
                     Text("Time:\(self.sportInfo.time)")
                     Text("Notes\(self.sportInfo.notes)")
+                    Spacer()
                 }
 
             }

@@ -10,7 +10,7 @@ import Foundation
 
 class SportManager: ObservableObject {
     
-    let serverLocation = "https://locahost/"
+  //  let serverLocation = "https://locahost/"
     
     @Published var sportName = String()
     @Published var lat = String()
@@ -26,7 +26,7 @@ class SportManager: ObservableObject {
         
         print("beginning to fetch data")
         
-        if let url = URL(string: "\(serverLocation)&q=\(sportSearched)") {
+        if let url = URL(string: "http://localhost/Swimming") {
             print("url:\(url)")
             // check to see if url is created correctly
             let session = URLSession(configuration: .default)
@@ -39,18 +39,15 @@ class SportManager: ObservableObject {
                     if let safeData = data {
                         do {
                             let results = try decoder.decode(SportData.self, from: safeData)
-                            DispatchQueue.main.async {
                                 print("help")
-                                self.sportName = (results.Sport)
-                                self.lat = (results.Lat)
-                                self.long = (results.Long)
-                                self.time = (results.Time)
-                                self.location = (results.Location)
+                            self.sportName = (results.Sport[0])
+                            self.lat = (results.Lat[0])
+                            self.long = (results.Long[0])
+                            self.time = (results.Time[0])
+                            self.location = (results.Location[0])
+                            self.notes = (results.Notes[0])
                                 // after the json from the server is decoded the varaibles in the app can be updated
-                                
-                                
-                                
-                            }
+                            
                         } catch {
                             print(error)
                         }

@@ -78,7 +78,7 @@ func main() {
 
 func handlerBySport(w http.ResponseWriter, r *http.Request) {
 
-	var selectedSportData [1]Event
+	var selectedSportData Event
 
 	fmt.Println("Handler for Sport - Incoming Request: ")
 	fmt.Println("Method: ", r.Method, " ", r.URL)
@@ -100,12 +100,12 @@ func handlerBySport(w http.ResponseWriter, r *http.Request) {
 	for index := 0; index <= 18; index++ {
 		if Events[index].Sport == sportSearched {
 			// search through array "game" and find struct with with specific sport name
-			selectedSportData[0].Sport = sportSearched
-			selectedSportData[0].Location = Events[index].Location
-			selectedSportData[0].Notes = Events[index].Notes
-			selectedSportData[0].Time = Events[index].Time
-			selectedSportData[0].Lat = Events[index].Lat
-			selectedSportData[0].Long = Events[index].Long
+			selectedSportData.Sport = sportSearched
+			selectedSportData.Location = Events[index].Location
+			selectedSportData.Notes = Events[index].Notes
+			selectedSportData.Time = Events[index].Time
+			selectedSportData.Lat = Events[index].Lat
+			selectedSportData.Long = Events[index].Long
 
 		}
 		// assign all of the data from the selected sport on to a new slice so it can be put in to a json
