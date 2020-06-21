@@ -28,7 +28,7 @@ var Events [20]Event
 
 func main() {
 
-	sportsList := [20]string{"Boy's Lacrosse", "Girl's Lacrosse", "Boy's Waterpolo", "Girl's Waterpolo", "Football", "Baseball", "Swimming", "Boy's Basketball", "Girl's Basketball", "Boy's Tennis", "Girl's Tennis", "Ultimate Frisbee", "Girl's Soccer", "Boy's Soccer", "Girl's Squash", "Boy's Squash", "Girl's Volleyball", "Boy's Volleyball", "Cross Country", "Track and Field"}
+	sportsList := [20]string{"Boy's Lacrosse", "Girl's Lacrosse", "Boy's Waterpolo", "Girl's Waterpolo", "Football", "Baseball", "Swimming", "Boy's Basketball", "Girl's Basketball", "Boy's Tennis", "Girl's Tennis", "Ultimate Frisbee", "Girl's Soccer", "Boy's Soccer", "Squash", "Squash", "Girl's Volleyball", "Boy's Volleyball", "Cross Country", "Track and Field"}
 
 	rand.Seed(time.Now().UnixNano())
 	// random seed so the data isn't always the same
@@ -97,7 +97,7 @@ func handlerBySport(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("error")
 	}
 
-	for index := 0; index <= 18; index++ {
+	for index := 0; index <= 19; index++ {
 		if Events[index].Sport == sportSearched {
 			// search through array "game" and find struct with with specific sport name
 			selectedSportData.Sport = sportSearched
